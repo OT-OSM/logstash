@@ -1,0 +1,4 @@
+---
+# vars file for logstash
+Node.name: "Test"
+logstash_version: "5"
