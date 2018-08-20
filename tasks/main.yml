@@ -3,5 +3,7 @@
 
 - name: Include OS Specific setup tasks
   include_tasks: logstash{{ ansible_os_family }}.yml
+  become: true
 
 - include_tasks: config.yml
+  become: true

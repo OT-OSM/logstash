@@ -17,5 +17,5 @@ galaxy_info:
     - vivid
   galaxy_tags:
     - logstash
-dependencies:
-    - opstree-ansible.osm_java
+#dependencies:
+#    - opstree-ansible.osm_java
