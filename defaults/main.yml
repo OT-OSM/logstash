@@ -2,7 +2,7 @@
 
 # defaults file for logstash
 # default opts for logstash JVM
-logstash_ms_heap_size: 128m
+logstash_ms_heap_size: 512m
 logstash_mx_heap_size: 512m
 
 # default opts for logstash.yml

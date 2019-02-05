@@ -20,8 +20,6 @@ Requirements
 Java8 must be installed on the systems. JAVA_HOME must be defined either implicitely or explicitely.
 Selinux must be disabled on the centOS/Redhat base systems.
 
-You can follow the ansible_Java playbook for Java configuration, [Java_playbook](https://github.com/opstree-ansible/osm_java)
-
 Role Variables
 --------------
 
