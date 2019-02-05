@@ -3,14 +3,12 @@
 - apt_key:
     url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
     state: present
-  become: true
 
 # Adding elastic repo
 - apt_repository:
     repo: "deb https://artifacts.elastic.co/packages/{{ logstash_version }}.x/apt stable main"
     state: present
     filename: 'elastic-{{ logstash_version }}.x'
-  become: true
 
 # checking if logstash is already installed
 - name: Check if Logstash is already installed.
@@ -21,11 +19,9 @@
 - name: Update apt cache if repository just added.
   apt: update_cache=yes
   when: logstash_installed.stat.exists == false
-  become: true
 
 # Installing logstash
 - name: Install Logstash.
   apt: name=logstash state=present
-  become: true
   notify:
    - restart logstash
