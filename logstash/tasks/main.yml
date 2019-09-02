@@ -1,0 +1,9 @@
+---
+# tasks file for logstash
+- name: role for logstash bellow than 7
+  include: main-6.yml
+  when: logstash_version is version('6', '<=')
+- name: role for logstash above 7
+  include: main-7.yml
+  when: logstash_version is version('7', '>=')
+

@@ -1,0 +1,50 @@
+---
+# Adding elastic key
+- apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+# Adding elastic repo
+- apt_repository:
+    repo: "deb https://artifacts.elastic.co/packages/{{ logstash_version }}.x/apt stable main"
+    state: present
+    filename: 'elastic-{{ logstash_version }}.x'
+
+# checking if logstash is already installed
+- name: Check if Logstash is already installed.
+  stat: path=/etc/init.d/logstash
+  register: logstash_installed
+
+- name: Update cache...
+  apt:
+    update_cache: yes
+
+
+# Installing logstash
+- name: Install Logstash.
+  apt: name=logstash state=present
+  notify:
+   - restart logstash
+
+- name: Creating beats input file
+  template:
+    src: "filebeat-input.conf.j2"
+    dest: "/etc/logstash/conf.d/filebeat-input.conf"
+  notify:
+    - restart logstash
+
+- name: Creating beats input file
+  template:
+    src: "syslog-filter.conf.j2"
+    dest: "/etc/logstash/conf.d/syslog-filter.conf"
+  notify:
+    - restart logstash
+
+
+- name: Creating output elasticsearch file
+  template:
+    src: "output-elasticsearch.conf.j2"
+    dest: "/etc/logstash/conf.d/output-elasticsearch.conf"
+  notify:
+    - restart logstash
+
