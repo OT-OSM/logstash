@@ -1,7 +1,0 @@
----
-- hosts: logstash
-  become: true
-  roles:
-    - { role: osm_logstash }
-
-

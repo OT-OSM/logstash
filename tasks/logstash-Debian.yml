@@ -10,18 +10,11 @@
     state: present
     filename: 'elastic-{{ logstash_version }}.x'
 
-# checking if logstash is already installed
-- name: Check if Logstash is already installed.
-  stat: path=/etc/init.d/logstash
-  register: logstash_installed
-
-# updating apt-cache
-- name: Update apt cache if repository just added.
-  apt: update_cache=yes
-  when: logstash_installed.stat.exists == false
-
 # Installing logstash
 - name: Install Logstash.
-  apt: name=logstash state=present
+  apt: 
+    name: logstash 
+    state: present
+    update_cache: yes
   notify:
    - restart logstash
