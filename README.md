@@ -39,10 +39,10 @@ Role Variables
 |logstash_version |7 |Version of logstash to be installed|
 |elasticSearchIp |192.168.0.225 | Ip of elasticsearch|
 |elasticSearchPort |9200 |Port of elasticsearch|
-|logstash_ms_heap_size |512m ||
-|logstash_mx_heap_size |512m ||
-|Queue_page_capacity |250mb ||
-|Queue_max_bytes |512mb ||
+|logstash_ms_heap_size |512m |Minimum heap size|
+|logstash_mx_heap_size |512m |Maximum heap size|
+|Queue_page_capacity |250mb |Maximum size of a queue page in bytes|
+|Queue_max_bytes |512mb |Total capacity of the queue in number of bytes|
 |Http_host |0.0.0.0 |Http host to which logstash will bind|
 |logstash_port |5044 |Port of the logstash from where it will receive output of beats|
 
