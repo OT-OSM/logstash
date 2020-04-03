@@ -1,59 +1,71 @@
-osm_lagstash
+Ansible Role: osm_logstash
 =========
 
-An Ansible Role for logstash which default install logstash 5 but can ce dynamic by passing extra-vars or changing the values in ```vars/main.yml```
+An Ansible Role to install and configure Logstash.
 
+Version History
+---------------
+
+|**Date**| **Version**| **Description**| **Changed By** |
+|----------|---------|---------------|-----------------|
+|**June '15** | v.1.0 | Initial Draft | Sumit Anand |
+
+Salient Features
+----------------
+* This role will check if logstash is already installed or not, if not installed, it will install on the rempte host.
 
 Supported OS
 ------------
-```This role will work on the following operating systems:
+  * CentOS:7
+  * CentOS:6
+  * Ubuntu:14
+  * Ubuntu:16
+  * Ubuntu:18
 
-   * Centos 6
-   * Centos 7
-   * Ubuntu 14/16
-   * Debian 14/16
-   * Redhat 6/7
-```
  
 Requirements
 ------------
-Java8 must be installed on the systems. JAVA_HOME must be defined either implicitely or explicitely.
-Selinux must be disabled on the centOS/Redhat base systems.
-
-Role Variables
---------------
-
-Available variables are listed below, along with default values (see defaults/main.yml):
-
-logstash_ms_heap_size: 128m
-
-logstash_mx_heap_size: 512m
-
-Node_name: Test
-
-Queue_page_capacity: 250mb
-
-Queue_max_bytes: 512mb
-
-Http_host: "0.0.0.0"
-
-Http_port: "9600"
-
-elasticSearchIp: 192.168.0.225
+  * JAVA 8
 
 Dependencies
 ------------
+  * Elastticsearch
 
-It depends on java8 and java_home and will fail if java is not found in the system
+Role Variables
+--------------
+|**Name**| **Default value**| **Description**|
+|--|--|--|
+|Node.name |Test |Name of the node|
+|logstash_version |7 |Version of logstash to be installed|
+|elasticSearchIp |192.168.0.225 | Ip of elasticsearch|
+|elasticSearchPort |9200 |Port of elasticsearch|
+|logstash_ms_heap_size |512m ||
+|logstash_mx_heap_size |512m ||
+|Queue_page_capacity |250mb ||
+|Queue_max_bytes |512mb ||
+|Http_host |0.0.0.0 |Http host to which logstash will bind|
+|logstash_port |5044 |Port of the logstash from where it will receive output of beats|
+
+Inventory
+----------
+An inventory should look like this:-
+```ini
+[logstashHost]                 
+192.168.1.198    ansible_user=ubuntu   
+192.168.3.201    ansible_user=opstree 
+```
 
 Example Playbook
 ----------------
 
-Including an example of how to use osm_logstash role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: default
-      roles:
-         - { role: osm_logstash }
+* Here is an example playbook:-
+```
+- hosts: logstashHost
+  become: true
+  roles:
+    - role: osm_logstash
+```
+* ansible-playbook java.yml
 
 License
 -------
@@ -63,7 +75,4 @@ BSD
 Author Information
 ------------------
 
-###### www.opstree.com
-
-###### blog.opstree.com
-
+- Sumit Anand
