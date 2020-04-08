@@ -1,7 +1,7 @@
 ---
 # tasks file for logstash
 - name: Check if Logstash is already installed.
-  stat: 
+  stat:
     path: /etc/systemd/system/logstash
   register: logstash_installed
   when: ansible_distribution_major_version == "16" or ansible_distribution_major_version == "18" or ansible_distribution_major_version == "7"

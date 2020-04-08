@@ -1,7 +1,8 @@
 ---
 # vars file for logstash
-Node.name: "Test"
+Node_name: "Test"
 logstash_version: "7"
+#logstash_specific_version: "7.3.0" ##uncomment to install specific version
 elasticSearchIp: "192.168.0.225"
 elasticSearchPort: "9200"
 logstash_ms_heap_size: 512m
@@ -9,4 +10,5 @@ logstash_mx_heap_size: 512m
 Queue_page_capacity: 250mb
 Queue_max_bytes: 512mb
 Http_host: "0.0.0.0" ##host to which logstash will bind with
+Http_port: "9600"
 logstash_port: "5044" ##logstash port
