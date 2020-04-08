@@ -17,17 +17,17 @@
   apt:
     name: logstash=1:{{ logstash_specific_version }}-1
     state: present
-    update_cache: yes
+    update_cache: true
   when: logstash_specific_version is defined
   notify:
-   - restart logstash
+    - restart logstash
 
 # Installing logstash
 - name: Install Logstash.
   apt:
     name: logstash
     state: present
-    update_cache: yes
+    update_cache: true
   when: logstash_specific_version is undefined
   notify:
-   - restart logstash
+    - restart logstash

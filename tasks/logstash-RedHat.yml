@@ -9,4 +9,3 @@
   yum: pkg=logstash state=installed
   notify:
    - restart logstash
-
