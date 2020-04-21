@@ -1,5 +1,5 @@
 output {
   elasticsearch {
-    hosts => ["{{ elasticSearchIp }}:9200"]
+    hosts => ["{{ elasticSearchIp }}:{{ elasticSearchPort }}"]
   }
 }

@@ -4,10 +4,10 @@
     src: "{{ item.name }}"
     dest: "{{ item.path }}"
   with_items:
-      - { name: 'logstash.yml.j2', path: '/etc/logstash/logstash.yml' }
-      - { name: '02-beats-input.conf.j2', path: '/etc/logstash/conf.d/02-beats-input.conf' }
-      - { name: '10-syslog-filter.conf.j2', path: '/etc/logstash/conf.d/10-syslog-filter.conf' }
-      - { name: '30-elasticsearch-output.conf.j2', path: '/etc/logstash/conf.d/30-elasticsearch-output.conf' }
+    - { name: 'logstash.yml.j2', path: '/etc/logstash/logstash.yml' }
+    - { name: '02-beats-input.conf.j2', path: '/etc/logstash/conf.d/02-beats-input.conf' }
+    - { name: '10-syslog-filter.conf.j2', path: '/etc/logstash/conf.d/10-syslog-filter.conf' }
+    - { name: '30-elasticsearch-output.conf.j2', path: '/etc/logstash/conf.d/30-elasticsearch-output.conf' }
 
 ## JVM options file
 - name: Create Logstash JVM-Options configuration files.

@@ -1,7 +1,22 @@
 ---
 # tasks file for logstash
+- name: Check if Logstash is already installed.
+  stat:
+    path: /etc/systemd/system/logstash
+  register: logstash_installed
+  when: ansible_distribution_major_version == "16" or ansible_distribution_major_version == "18" or ansible_distribution_major_version == "7"
+
+- name: Check if Logstash is already installed.
+  stat:
+    path: /etc/init.d/logstash
+  register: logstash_installed
+  when: ansible_distribution_major_version == "14" or ansible_distribution_major_version == "6"
+
 
 - name: Include OS Specific setup tasks
   include_tasks: logstash-{{ ansible_os_family }}.yml
+  when: logstash_installed is defined
 
-- include_tasks: config.yml
+- name: Configuring logstash
+  include_tasks: config.yml
+  when: logstash_installed is  defined
