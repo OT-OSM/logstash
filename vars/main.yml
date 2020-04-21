@@ -11,4 +11,4 @@ Queue_page_capacity: 250mb
 Queue_max_bytes: 512mb
 Http_host: "0.0.0.0"   ## host to which logstash will bind with
 Http_port: "9600"
-logstash_port: "5044"   ## logstash port
+logstash_port: "5044"   ## logstash port for beats input

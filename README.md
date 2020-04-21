@@ -8,7 +8,8 @@ Version History
 
 |**Date**| **Version**| **Description**| **Changed By** |
 |----------|---------|---------------|-----------------|
-|**June '15** | v.1.0 | Initial Draft | Sumit Anand |
+|**15-June-2019** | v.1.0 | Initial Draft | Sumit Anand |
+|**21-April-2020** | v.1.1 | Installation of specific Version, changing variable directory | Mukesh Tuteja|
 
 Salient Features
 ----------------
@@ -29,14 +30,15 @@ Requirements
 
 Dependencies
 ------------
-  * Elastticsearch
+  * Elasticsearch
 
 Role Variables
 --------------
 |**Name**| **Default value**| **Description**|
 |--|--|--|
 |Node.name |Test |Name of the node|
-|logstash_version |7 |Version of logstash to be installed|
+|logstash_version |7 |Major version of logstash to be installed|
+|logstash_specific_version |7.3.0 | Uncomment this variable to install specific version of logstash|
 |elasticSearchIp |192.168.0.225 | Ip of elasticsearch|
 |elasticSearchPort |9200 |Port of elasticsearch|
 |logstash_ms_heap_size |512m |Minimum heap size|
