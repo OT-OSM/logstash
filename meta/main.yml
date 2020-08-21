@@ -16,4 +16,8 @@ galaxy_info:
         - trusty
         - vivid
   galaxy_tags:
+    - kibana
     - logstash
+    - elasticsearch
+    - opstree
+    - otosm
