@@ -12,8 +12,8 @@ Version History
 
 |**Date**| **Version**| **Description**| **Changed By** |
 |----------|---------|---------------|-----------------|
-|**15-June-2019** | v.1.0 | Initial Draft | Sumit Anand |
-|**21-April-2020** | v.1.1 | Installation of specific Version, changing variable directory | Mukesh Tuteja|
+|**15-June-2019** | v0.0.1 | Initial Draft | Sumit Anand |
+|**21-August-2020** | v0.0.2 | Installation of specific Version, changing variable directory | Mukesh Tuteja|
 
 Salient Features
 ----------------
