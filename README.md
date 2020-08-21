@@ -1,6 +1,10 @@
 Ansible Role: osm_logstash
 =========
 
+[![Opstree Solutions][opstree_avatar]][opstree_homepage]<br/>[Opstree Solutions][opstree_homepage] 
+  [opstree_homepage]: https://opstree.github.io/
+  [opstree_avatar]: https://img.cloudposse.com/150x150/https://github.com/opstree.png
+
 An Ansible Role to install and configure Logstash.
 
 Version History
@@ -13,7 +17,7 @@ Version History
 
 Salient Features
 ----------------
-* This role will check if logstash is already installed or not, if not installed, it will install on the rempte host.
+* This role will check if logstash is already installed or not, if not installed, it will install on the remote host the specific version on ubuntu os and default on centos.
 
 Supported OS
 ------------
@@ -68,6 +72,11 @@ Example Playbook
     - role: osm_logstash
 ```
 * ansible-playbook java.yml
+
+Future Proposed Changes
+-----------------------
+Provide specific version install capability on CentOS.
+
 
 License
 -------
