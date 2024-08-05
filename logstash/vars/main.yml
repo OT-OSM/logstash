@@ -1,0 +1,16 @@
+---
+
+Dependency:
+  - openjdk-8-jdk
+  - apt-transport-https
+  - gpg
+
+logstash_GPG_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+
+logstash_version: "8"
+
+base_url: https://artifacts.elastic.co/packages/{{ logstash_version }}.x/yum
+
+key_ring: /usr/share/keyrings/elasticsearch-keyring.gpg
+
+repository: "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main"

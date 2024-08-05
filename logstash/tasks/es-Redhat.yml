@@ -1,0 +1,30 @@
+---
+- name: Update the yum cache.
+  yum:
+    update_cache: yes 
+
+- name: Install service dependencies
+  yum:
+    name: "{{ Dependency }}"
+    state: present  
+
+- name: Adding GPG key for logstash.
+  rpm_key:
+      state: present
+      key: "{{ logstash_GPG_key }}"
+
+- name: Adding repository for logstash.
+  yum_repository:
+      name: elastic-8.x
+      description: "Elastic repository for 8.x packages"
+      baseurl: "{{ base_url }}"
+      gpgcheck: yes
+      gpgkey: "{{ logstash_GPG_key }}"
+      enabled: yes
+      
+- name: Installing logstash.
+  yum:
+      name: logstash
+      state: present
+  notify: Restart logstash
+

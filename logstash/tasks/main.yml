@@ -1,0 +1,7 @@
+---
+- name: Include OS Specific setup tasks
+  include_tasks: es-{{ ansible_os_family }}.yml
+
+- name: Configure Elasticsearch
+  include_tasks: es-config.yml
+
