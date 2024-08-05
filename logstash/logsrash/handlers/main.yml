@@ -1,0 +1,7 @@
+---
+- name: Start my service
+  service:
+    name: "{{ item }}"
+    state: started
+  loop: "{{ tool }}"
+

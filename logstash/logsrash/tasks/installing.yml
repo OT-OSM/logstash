@@ -1,0 +1,46 @@
+---
+- name: adding GPG key (ubuntu)
+  apt_key:
+      url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      state: present
+      validate_certs: yes
+      keyring: /usr/share/keyrings/elasticsearch-keyring.gpg
+  when: ansible_os_family == 'Debian'
+
+- name: adding repository (ubuntu)
+  apt_repository:
+      repo: 'deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main'
+      state: present
+  when: ansible_os_family == 'Debian'
+      
+- name: installing logstash (ubuntu)
+  apt:
+      update_cache: yes
+      name: "{{ tool }}"
+      state: present
+  when: ansible_os_family == 'Debian'
+  notify: Start my service          
+
+- name: Adding GPG key (Red Hat)
+  rpm_key:
+      state: present
+      key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+  when: ansible_os_family == 'RedHat'
+
+- name: Adding repository (Red Hat)
+  yum_repository:
+      name: elastic-8.x
+      description: "Elastic repository for 8.x packages"
+      baseurl: https://artifacts.elastic.co/packages/8.x/yum
+      gpgcheck: yes
+      gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      enabled: yes
+  when: ansible_os_family == 'RedHat'
+      
+- name: Installing Kibana (Red Hat)
+  yum:
+      name: "{{ tool }}"
+      state: present
+  when: ansible_os_family == 'RedHat'
+  notify: Start my service
+
