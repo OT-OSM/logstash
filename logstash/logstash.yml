@@ -1,0 +1,6 @@
+---
+- name: installing logstash
+  hosts: aws_ec2
+  become: yes
+  roles:
+      - logsrash
