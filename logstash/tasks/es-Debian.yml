@@ -3,7 +3,7 @@
   apt:
     update_cache: yes
 
-- name: Dependencies are installing.
+- name: Install Dependencies
   apt:
     name: "{{ Dependency }}"
     state: present
