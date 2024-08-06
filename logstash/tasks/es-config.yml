@@ -1,4 +1,14 @@
-- name: Configure kibana
+---
+- name: Backup default Logstash configuration file
+  copy:
+    src: /etc/logstash/conf.d/logstash.conf
+    dest: /etc/logstash/conf.d/logstash.yml.backup
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: Configure logstash
   template:
     src: logstash.j2
     dest: /etc/logstash/conf.d/logstash.conf
