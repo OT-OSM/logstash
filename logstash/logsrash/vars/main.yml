@@ -1,8 +1,0 @@
----
-tool:
-  - logstash
-
-dependency:
-  - openjdk-8-jdk
-  - apt-transport-https
-  - gpg
