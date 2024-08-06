@@ -14,3 +14,5 @@ base_url: https://artifacts.elastic.co/packages/{{ logstash_version }}.x/yum
 key_ring: /usr/share/keyrings/elasticsearch-keyring.gpg
 
 repository: "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main"
+
+Elasticsearch-hosts: ["http://localhost:9200"]
